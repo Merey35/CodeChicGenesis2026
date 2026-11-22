@@ -1,0 +1,294 @@
+{
+  "package_version": "1.3.0",
+  "schema_version": "1.3.0",
+  "python_version": "3.12.4",
+  "policies": [
+    "random",
+    "reconcile",
+    "flag_all",
+    "oracle"
+  ],
+  "limit_episodes": 20,
+  "policy_timeout_seconds": 60.0,
+  "policy_execution": "separate process with environment RPC",
+  "episodes": [
+    {
+      "episode_id": "train_01",
+      "seed": 101,
+      "config": {
+        "errors": [],
+        "num_invoices": 12,
+        "refund_count": 0,
+        "episode_id": "train_01"
+      }
+    },
+    {
+      "episode_id": "train_02",
+      "seed": 102,
+      "config": {
+        "errors": [],
+        "num_invoices": 14,
+        "split_payment_count": 2,
+        "refund_count": 0,
+        "episode_id": "train_02"
+      }
+    },
+    {
+      "episode_id": "train_03",
+      "seed": 103,
+      "config": {
+        "errors": [],
+        "num_invoices": 12,
+        "refund_count": 2,
+        "episode_id": "train_03"
+      }
+    },
+    {
+      "episode_id": "train_04",
+      "seed": 104,
+      "config": {
+        "errors": [],
+        "num_invoices": 12,
+        "legal_repeat_amounts": true,
+        "refund_count": 0,
+        "episode_id": "train_04"
+      }
+    },
+    {
+      "episode_id": "train_05",
+      "seed": 105,
+      "config": {
+        "errors": [],
+        "num_invoices": 12,
+        "base_currency": "USD",
+        "period_boundary_invoice": true,
+        "refund_count": 0,
+        "episode_id": "train_05"
+      }
+    },
+    {
+      "episode_id": "train_06",
+      "seed": 106,
+      "config": {
+        "errors": [
+          "duplicate_invoice"
+        ],
+        "num_invoices": 13,
+        "refund_count": 0,
+        "episode_id": "train_06"
+      }
+    },
+    {
+      "episode_id": "train_07",
+      "seed": 107,
+      "config": {
+        "errors": [
+          "duplicate_invoice",
+          "bad_fx_date_or_rate"
+        ],
+        "num_invoices": 58,
+        "split_payment_count": 8,
+        "refund_count": 5,
+        "episode_id": "train_07"
+      }
+    },
+    {
+      "episode_id": "train_08",
+      "seed": 108,
+      "config": {
+        "errors": [
+          "duplicate_invoice",
+          "period_misclassification"
+        ],
+        "num_invoices": 78,
+        "split_payment_count": 10,
+        "refund_count": 6,
+        "episode_id": "train_08"
+      }
+    },
+    {
+      "episode_id": "train_09",
+      "seed": 109,
+      "config": {
+        "errors": [
+          "unallocated_or_partial_payment",
+          "bad_fx_date_or_rate",
+          "period_misclassification"
+        ],
+        "payment_issue_mode": "unallocated",
+        "payment_discrepancy_minor": 1800,
+        "num_invoices": 98,
+        "split_payment_count": 12,
+        "refund_count": 8,
+        "episode_id": "train_09"
+      }
+    },
+    {
+      "episode_id": "train_10",
+      "seed": 110,
+      "config": {
+        "errors": [
+          "unallocated_or_partial_payment",
+          "duplicate_invoice",
+          "bad_fx_date_or_rate",
+          "period_misclassification"
+        ],
+        "payment_issue_mode": "partial",
+        "payment_discrepancy_minor": 2300,
+        "num_invoices": 147,
+        "split_payment_count": 18,
+        "refund_count": 12,
+        "episode_id": "train_10"
+      }
+    },
+    {
+      "episode_id": "dev_01",
+      "seed": 201,
+      "config": {
+        "errors": [
+          "unallocated_or_partial_payment"
+        ],
+        "payment_issue_mode": "partial",
+        "payment_discrepancy_minor": 3100,
+        "refund_count": 0,
+        "episode_id": "dev_01"
+      }
+    },
+    {
+      "episode_id": "dev_02",
+      "seed": 202,
+      "config": {
+        "errors": [
+          "bad_fx_date_or_rate"
+        ],
+        "refund_count": 0,
+        "episode_id": "dev_02"
+      }
+    },
+    {
+      "episode_id": "dev_03",
+      "seed": 203,
+      "config": {
+        "errors": [
+          "bad_fx_date_or_rate"
+        ],
+        "base_currency": "USD",
+        "refund_count": 0,
+        "episode_id": "dev_03"
+      }
+    },
+    {
+      "episode_id": "dev_04",
+      "seed": 204,
+      "config": {
+        "errors": [
+          "period_misclassification"
+        ],
+        "period_misclassification_days": 3,
+        "period_misclassification_minor": 12000,
+        "refund_count": 0,
+        "episode_id": "dev_04"
+      }
+    },
+    {
+      "episode_id": "dev_05",
+      "seed": 205,
+      "config": {
+        "errors": [
+          "period_misclassification"
+        ],
+        "period_misclassification_days": 8,
+        "period_misclassification_minor": 22500,
+        "base_currency": "USD",
+        "refund_count": 0,
+        "episode_id": "dev_05"
+      }
+    },
+    {
+      "episode_id": "dev_06",
+      "seed": 206,
+      "config": {
+        "interactions": [
+          "partial_fx_payment_near_period_end"
+        ],
+        "scenario_params": {
+          "partial_fx_payment_near_period_end": {
+            "days_before_period_end": 1,
+            "shortfall_minor": 1100
+          }
+        },
+        "refund_count": 0,
+        "episode_id": "dev_06"
+      }
+    },
+    {
+      "episode_id": "dev_07",
+      "seed": 207,
+      "config": {
+        "interactions": [
+          "partial_fx_payment_near_period_end"
+        ],
+        "scenario_params": {
+          "partial_fx_payment_near_period_end": {
+            "days_before_period_end": 2,
+            "shortfall_minor": 2200
+          }
+        },
+        "num_invoices": 16,
+        "refund_count": 0,
+        "episode_id": "dev_07"
+      }
+    },
+    {
+      "episode_id": "dev_08",
+      "seed": 208,
+      "config": {
+        "interactions": [
+          "partial_fx_payment_near_period_end"
+        ],
+        "scenario_params": {
+          "partial_fx_payment_near_period_end": {
+            "days_before_period_end": 3,
+            "shortfall_minor": 3300
+          }
+        },
+        "base_currency": "USD",
+        "refund_count": 0,
+        "episode_id": "dev_08"
+      }
+    },
+    {
+      "episode_id": "dev_09",
+      "seed": 209,
+      "config": {
+        "interactions": [
+          "duplicate_invoice_with_partial_payment"
+        ],
+        "scenario_params": {
+          "duplicate_invoice_with_partial_payment": {
+            "shortfall_minor": 1400
+          }
+        },
+        "refund_count": 0,
+        "episode_id": "dev_09"
+      }
+    },
+    {
+      "episode_id": "dev_10",
+      "seed": 210,
+      "config": {
+        "interactions": [
+          "duplicate_invoice_with_partial_payment"
+        ],
+        "scenario_params": {
+          "duplicate_invoice_with_partial_payment": {
+            "shortfall_minor": 2800
+          }
+        },
+        "base_currency": "USD",
+        "refund_count": 0,
+        "episode_id": "dev_10"
+      }
+    }
+  ]
+}
